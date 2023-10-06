@@ -10,6 +10,12 @@ public class BufferedStreams {
         } catch (IOException ignore) {}
     }
 
+    public static void usless(String file) {
+        try (var in = new BufferedReader(new FileReader(file))) {
+            in.lines().forEach(ch -> {});
+        } catch (IOException ignore) {}
+    }
+
     public static void writeLines(String file, String[] lines) {
         try (var out = new BufferedWriter(new FileWriter(file))) {
             for (String line : lines) {

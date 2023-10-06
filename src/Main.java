@@ -1,4 +1,5 @@
 import stream.types.*;
+import util.Cronometre;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -15,11 +16,12 @@ public class Main {
         System.out.println("Selecciona una activitat:");
         System.out.println("-------------------------");
         System.out.println("0. Sortir");
-        System.out.println("1. Exercici 1");
-        System.out.println("2. Exercici 2");
-        System.out.println("3. Exercici 3");
-        System.out.println("4. Exercici 4");
-        System.out.println("5. Exercici 5");
+        System.out.println("1. Exercici 6");
+        System.out.println("2. Exercici 7");
+        System.out.println("3. Exercici 8");
+        System.out.println("4. Exercici 9");
+        System.out.println("5. Exercici 10");
+        System.out.println("6. Exercici 11");
         System.out.println("-------------------------");
 
         option = getNumber();
@@ -31,6 +33,7 @@ public class Main {
             case 3 -> testBuffered();
             case 4 -> testData();
             case 5 -> testObject();
+            case 6 -> testComparison();
 
             default -> System.out.println("Opció no vàlida");
         }
@@ -126,6 +129,29 @@ public class Main {
         System.out.println("Llegint test.dat");
         var a = ObjectStreams.readObject("test.dat");
         System.out.println(Objects.requireNonNull(a));
+    }
+
+    static void testComparison() {
+        var timer = new Cronometre();
+
+        System.out.println("Exercici 12");
+        System.out.println();
+
+        System.out.println("Llegint benvinguda.dat CharStreams");
+
+        timer.inicia();
+        CharStreams.ussless("Shakespeare.txt");
+        timer.atura();
+
+        System.out.println(timer.mostra() + " Milliseconds");
+
+        System.out.println("Llegint benvinguda.dat BufferedStreams");
+
+        timer.inicia();
+        BufferedStreams.usless("Shakespeare.txt");
+        timer.atura();
+
+        System.out.println(timer.mostra() + " Milliseconds");
     }
 }
 

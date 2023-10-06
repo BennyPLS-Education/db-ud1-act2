@@ -16,6 +16,14 @@ public class CharStreams {
         } catch (IOException ignore) {}
     }
 
+    public static void ussless(String file) {
+        try (var in = new FileReader(file)) {
+            int b;
+            while ((b = in.read()) != -1);
+
+        } catch (IOException ignore) {}
+    }
+
     public static void writeChars(String file, char[] data) {
         try (var out = new FileWriter(file)) {
             out.write(data);
